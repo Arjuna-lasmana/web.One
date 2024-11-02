@@ -96,7 +96,7 @@
         // beranda animation
         const berandaAnimation = () => {
             gsap.from(beranda, {
-                autoAlpha : 0,      // untuk opacity dan visibility
+                autoAlpha : 0,
                 delay : 1.5,
                 duration : 2,
                 ease : "back.out",
@@ -109,8 +109,8 @@
             gsap.from(tentangJudul, {
                 x : -50,
                 autoAlpha : 0,
-                ease : "power3.inOut",       // untuk tipe animasi atau ease nya
-                scrollTrigger: {             // untuk animasi berdasarkan scroll pada viewport
+                ease : "power3.inOut",
+                scrollTrigger: {
                     trigger: '#judulTentang',
                     start: "-70px 60%",
                     end: "center center",
@@ -145,9 +145,9 @@
                     scrub: 4
                 }
             })
-            gsap.from(box, {        // from berarti set awalan animasi, hasil di css nya
+            gsap.from(box, {
                 xPercent : -50,
-                autoAlpha : 0,      // auto untuk opacity dan visibility
+                autoAlpha : 0,
                 delay: 2,
                 ease : "power3.inOut",
                 scrollTrigger: {
@@ -166,9 +166,9 @@
                 autoAlpha : 0,
                 ease : "power2.in",
                 scrollTrigger: {
-                    trigger: kontakJudul,
-                    start: "top 60%",
-                    end: "10px center",
+                    trigger: "#proyek",
+                    start: "50% 55%",
+                    end: "55% 50%",
                     scrub: 2
                 }
             })
@@ -177,9 +177,9 @@
                 autoAlpha : 0,
                 ease : "power2.in",
                 scrollTrigger: {
-                    trigger: kontakJudul,
-                    start: "25px 60%",
-                    end: "10px center",
+                    trigger: "#proyek",
+                    start: "50% 55%",
+                    end: "55% 50%",
                     scrub: 3
                 }
             })
