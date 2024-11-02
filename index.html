@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web One</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Web One</h1>
+            <nav>
+                <a href="#">Beranda</a>
+                <a href="#tentang">Tentang</a>
+                <a href="#proyek">Proyek</a>
+                <a href="#kontak">Kontak</a>
+            </nav>
+        </header>
+        <main>
+            <section id="beranda">
+                <div class="wrap">
+                    <h2>Selamat Datang di Web One</h2>
+                    <p>
+                        Web One merupakan web pertama saya yang memiliki animasi. 
+                        Jelajahi proyek-proyek kreatif kami.
+                    </p>
+                    <a href="#tentang">Pelajari Lebih Lanjut</a>
+                </div>
+            </section>
+            <section id="tentang">
+                <h2 id="judulTentang">Tentang Kami</h2>
+                <p id="pTentang">
+                    Kami adalah tim profesional yang berfokus pada inovasi teknologi, desain kreatif, dan solusi 
+                    interaktif yang menghubungkan brand Anda dengan pelanggan.
+                </p>
+            </section>
+            <section id="proyek">
+                <h2 id="judulProyek">Proyek Kami</h2>
+                <div class="wrapper">
+                    <div class="box">
+                        <img src="#" alt="Proyek 1">
+                        <h2>Proyek 1</h2>
+                        <p>Solusi web interaktif yang menggabungkan UX dan teknologi modern.</p>
+                    </div>
+                    <div class="box">
+                        <img src="#" alt="Proyek 2">
+                        <h2>Proyek 2</h2>
+                        <p>Aplikasi mobile yang dirancang dengan desain modern dan fungsionalitas tinggi.</p>
+                    </div>
+                    <div class="box">
+                        <img src="#" alt="Proyek 3">
+                        <h2>Proyek 3</h2>
+                        <p>Website e-commerce yang cepat, aman, dan mudah digunakan.</p>
+                    </div>
+                    <div class="box">
+                        <img src="#" alt="Proyek 4">
+                        <h2>Proyek 4</h2>
+                        <p>Strategi pemasaran digital untuk meningkatkan kehadiran online Anda.</p>
+                    </div>
+                </div>
+            </section>
+            <section id="kontak">
+                <h2 id="judulKontak">Kontak Kami</h2>
+                <form action="#" id="formKontak">
+                    <input type="username" placeholder="Nama" required />
+                    <input type="email" placeholder="Email" required />
+                    <textarea name="pesan" placeholder="Pesan" required></textarea>
+                    <button type="submit">Kirim Pesan</button>
+                </form>
+            </section>
+            <footer>
+                <p>&copy; 2024 Web One | Arjuna Putra Lasmana</p>
+            </footer>
+        </main>
+    </div>
+
+    <!--?  Animation -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger)
+
+        // initialitation
+        let beranda = document.querySelector(".wrap")
+        let tentangJudul = document.getElementById("judulTentang")
+        let tentangP = document.getElementById("pTentang")
+        let box = document.querySelector(".wrapper")
+        let proyekJudul = document.getElementById("judulProyek")
+        let kontakJudul = document.getElementById("judulKontak")
+        let kontakForm = document.getElementById("formKontak")
+
+        // initialitaion timeline
+        const master = gsap.timeline()
+        
+        // beranda animation
+        const berandaAnimation = () => {
+            gsap.from(beranda, {
+                autoAlpha : 0,      // untuk opacity dan visibility
+                delay : 1.5,
+                duration : 2,
+                ease : "back.out",
+                y : 100,
+            });
+        }
+
+        // tentang animation
+        const tentangAnimation = () => {
+            gsap.from(tentangJudul, {
+                x : -50,
+                autoAlpha : 0,
+                ease : "power3.inOut",       // untuk tipe animasi atau ease nya
+                scrollTrigger: {             // untuk animasi berdasarkan scroll pada viewport
+                    trigger: '#judulTentang',
+                    start: "-70px 60%",
+                    end: "center center",
+                    scrub: 4
+                }
+            })
+            gsap.from(tentangP, {
+                x : -50,
+                autoAlpha : 0,
+                delay: 2,
+                ease : "power3.inOut",
+                scrollTrigger: {
+                    trigger: tentangJudul,
+                    start: "-50px center",
+                    end: "20px center",
+                    scrub: 6
+                }
+            })
+        }
+        
+
+        // proyek animation
+        const proyekAnimation = () => {
+            gsap.from(proyekJudul, {
+                x : -100,
+                autoAlpha : 0,
+                ease : "power2.inOut",
+                scrollTrigger: {
+                    trigger: proyekJudul,
+                    start: "top 60%",
+                    end: "center center",
+                    scrub: 4
+                }
+            })
+            gsap.from(box, {        // from berarti set awalan animasi, hasil di css nya
+                xPercent : -50,
+                autoAlpha : 0,      // auto untuk opacity dan visibility
+                delay: 2,
+                ease : "power3.inOut",
+                scrollTrigger: {
+                    trigger: box,
+                    start: "top 60%",
+                    end: "20% center",
+                    scrub: 10
+                }
+            })
+        }
+
+        // kontak animation
+        const kontakAnimation = () => {
+            gsap.from(kontakJudul, {
+                y : -50,
+                autoAlpha : 0,
+                ease : "power2.in",
+                scrollTrigger: {
+                    trigger: kontakJudul,
+                    start: "top 60%",
+                    end: "10px center",
+                    scrub: 2
+                }
+            })
+            gsap.from(kontakForm, {
+                scale : 0.8,
+                autoAlpha : 0,
+                ease : "power2.in",
+                scrollTrigger: {
+                    trigger: kontakJudul,
+                    start: "25px 60%",
+                    end: "10px center",
+                    scrub: 3
+                }
+            })
+        }
+
+        // add animation
+        master
+            .add(berandaAnimation())
+            .add(tentangAnimation())
+            .add(proyekAnimation())
+            .add(kontakAnimation())
+        
+    </script>
+</body>
+</html>

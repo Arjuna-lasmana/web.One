@@ -1,0 +1,139 @@
+*, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    line-height: 1.6;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+header nav {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+header nav a {
+    color: #d7d7d7;
+    text-decoration: none;
+    transition: .2s ease;
+}
+header nav a:hover {
+    color: #fafafa;
+}
+
+section {
+    padding: 50px 10%;
+}
+
+#beranda {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 65vh;
+    background-color: #999;
+}
+#beranda .wrap {
+    text-align: center;
+}
+#beranda .wrap h2 {
+    font-size: 30px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+#beranda .wrap p {
+    color: #333;
+    font-size: 15px;
+    margin-bottom: 30px;
+}
+#beranda .wrap a {
+    padding: 10px 15px;
+    color: #fafafa;
+    background-color: rgb(60, 60, 169);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: .2s ease-in;
+}
+#beranda .wrap a:hover {
+    background-color: rgb(44, 44, 121);
+    
+}
+
+#proyek .wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 30px;
+}
+.wrapper .box {
+    background-color: #d6d6d6;
+    padding: 25px;
+    border-radius: 8px;
+    line-height: 1.9;
+    transition: all .2s ease-in-out;
+}
+.wrapper .box:hover {
+    background-color: #b8cbe1;
+}
+.wrapper .box h2 {
+    font-size: 20px;
+}
+.wrapper .box p {
+    color: #444;
+}
+
+#kontak {
+    background-color: rgb(34, 34, 62);
+    color: #fafafa;
+}
+#kontak form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+#kontak form input,
+#kontak form textarea {
+    padding: 10px 10px;
+    border-radius: 3px;
+}
+#kontak form button {
+    padding: 10px 10px;
+    border-radius: 3px;
+    background-color: rgb(89, 151, 222);
+    color: #fff;
+    cursor: pointer;
+    transition: .2s ease-in;
+}
+#kontak form button:hover {
+    background-color: rgb(66, 115, 171);
+}
+
+footer {
+    padding: 15px 0;
+    text-align: center;
+    background-color: #333;
+    color: #fafafa;
+}
+
+@media (max-width: 1200px) {
+    #proyek .wrapper {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
+
+@media (max-width: 576px) {
+    #beranda .wrap h2 {
+        font-size: 26px;
+    }
+    #proyek .wrapper {
+        grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    }   
+}
